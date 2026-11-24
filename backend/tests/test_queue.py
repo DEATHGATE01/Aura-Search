@@ -1,18 +1,18 @@
 """Tests for async job queue."""
 import pytest
 import asyncio
-from app.queue import JobQueue
+from app.queue import AsyncJobQueue, Job
 
 
 @pytest.fixture
 def job_queue():
-    return JobQueue()
+    return AsyncJobQueue()
 
 
 @pytest.mark.asyncio
 async def test_create_job(job_queue):
     """Test job creation returns a job ID."""
-    job_id = job_queue.create_job("test query")
+    job_id = await job_queue.enqueue("test query")
     assert job_id is not None
     assert isinstance(job_id, str)
     assert len(job_id) > 0
@@ -21,11 +21,11 @@ async def test_create_job(job_queue):
 @pytest.mark.asyncio
 async def test_get_job_status(job_queue):
     """Test job status retrieval."""
-    job_id = job_queue.create_job("test")
+    job_id = await job_queue.enqueue("test")
     job = job_queue.get_job(job_id)
     assert job is not None
-    assert job["status"] == "pending"
-    assert job["query"] == "test"
+    assert job.status == "queued"
+    assert job.user_query == "test"
 
 
 @pytest.mark.asyncio
