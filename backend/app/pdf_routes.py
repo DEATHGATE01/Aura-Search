@@ -1,10 +1,8 @@
 import logging
-import shutil
 from pathlib import Path
 from typing import Optional
 
-from fastapi import APIRouter, File, HTTPException
-from fastapi.responses import FileResponse
+from fastapi import APIRouter, HTTPException
 
 from app.pdf_processor import pdf_processor
 
