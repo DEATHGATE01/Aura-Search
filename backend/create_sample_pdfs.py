@@ -1,6 +1,6 @@
 """Generate sample PDFs for testing"""
-from fpdf import FPDF
 from pathlib import Path
+from fpdf import FPDF
 
 PDF_DIR = Path("./pdfs")
 PDF_DIR.mkdir(exist_ok=True)
@@ -29,8 +29,8 @@ Revenue Performance:
 - Year-over-year growth: 23%
 - Quarterly growth: 8%
 
-The company achieved record revenue this quarter, driven by strong 
-performance in our core product lines and successful expansion into 
+The company achieved record revenue this quarter, driven by strong
+performance in our core product lines and successful expansion into
 new markets.
 """)
 
@@ -49,7 +49,7 @@ This growth was primarily driven by:
 3. Launch of premium tier subscription
 4. International market expansion
 
-The strong performance exceeded analyst expectations and positions 
+The strong performance exceeded analyst expectations and positions
 the company well for continued growth in 2025.
 """)
 
@@ -66,10 +66,10 @@ pdf2.ln(10)
 pdf2.multi_cell(0, 10, """
 Industry Overview
 
-This report provides a comprehensive analysis of market trends and 
+This report provides a comprehensive analysis of market trends and
 competitive landscape for the technology sector in 2024.
 
-Key findings suggest continued growth in 2024 with opportunities 
+Key findings suggest continued growth in 2024 with opportunities
 in emerging markets and AI-driven solutions.
 """)
 
@@ -85,7 +85,7 @@ Current Trends:
 3. Sustainability: Growing focus on green technology
 4. Remote Work: Hybrid models becoming standard
 
-Market projections indicate continued growth in 2024, with the 
+Market projections indicate continued growth in 2024, with the
 technology sector expected to grow 12% year-over-year.
 """)
 
