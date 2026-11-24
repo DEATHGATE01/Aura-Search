@@ -1,5 +1,4 @@
 """Tests for PDF processor module."""
-import pytest
 from pathlib import Path
 
 from app.pdf_processor import PDFProcessor
