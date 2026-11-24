@@ -1,8 +1,6 @@
 """Tests for async job queue."""
-import asyncio
-
 import pytest
-from app.queue import AsyncJobQueue, Job
+from app.queue import AsyncJobQueue
 
 
 @pytest.fixture
