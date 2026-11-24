@@ -9,6 +9,9 @@ on:
 jobs:
   backend-tests:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -17,9 +20,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -e ./backend pytest pytest-asyncio
+          pip install -e .. pytest pytest-asyncio
       - name: Run backend tests
-        run: pytest backend/tests/ -v
+        run: pytest tests/ -v
 
   frontend-tests:
     runs-on: ubuntu-latest
