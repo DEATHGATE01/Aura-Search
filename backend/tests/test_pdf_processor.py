@@ -9,14 +9,15 @@ def test_pdf_processor_init():
     processor = PDFProcessor()
     assert processor is not None
     assert hasattr(processor, 'preload_pdfs')
-    assert hasattr(processor, 'search')
+    assert hasattr(processor, 'extract_pdf_info')
+    assert hasattr(processor, 'get_page_text')
 
 
 def test_preload_pdfs_empty_dir(tmp_path):
     """Test preloading PDFs from empty directory."""
     processor = PDFProcessor()
     processor.preload_pdfs(tmp_path)
-    assert len(processor.documents) == 0
+    assert len(processor.cache) == 0
 
 
 def test_preload_pdfs_missing_dir():
@@ -24,4 +25,4 @@ def test_preload_pdfs_missing_dir():
     processor = PDFProcessor()
     missing = Path("/nonexistent/path")
     processor.preload_pdfs(missing)
-    assert len(processor.documents) == 0
+    assert len(processor.cache) == 0
