@@ -4,7 +4,6 @@ import logging
 
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import StreamingResponse
-
 from pydantic import BaseModel
 
 from app.queue import job_queue
