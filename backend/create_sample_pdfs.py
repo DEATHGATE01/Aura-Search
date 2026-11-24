@@ -1,6 +1,6 @@
 """Generate sample PDFs for testing"""
-from pathlib import Path
 from fpdf import FPDF
+from pathlib import Path
 
 PDF_DIR = Path("./pdfs")
 PDF_DIR.mkdir(exist_ok=True)
